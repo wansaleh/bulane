@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
@@ -43,7 +44,19 @@ export function SiteHeader() {
                 <span className="sr-only">Twitter</span>
               </div>
             </Link>
+
             <ThemeToggle />
+
+            <div>
+              <SignedIn>
+                {/* Mount the UserButton component */}
+                <UserButton />
+              </SignedIn>
+              <SignedOut>
+                {/* Signed out users get sign in button */}
+                <SignInButton />
+              </SignedOut>
+            </div>
           </nav>
         </div>
       </div>
